@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil de Usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="dietaForm" (ngSubmit)="enviarFormulario()">
+    <ion-item>
+      <ion-label position="stacked">Sexo</ion-label>
+      <ion-input formControlName="sexo" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Edad</ion-label>
+      <ion-input formControlName="edad" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Peso (kg)</ion-label>
+      <ion-input formControlName="kg" type="number" step="0.01" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Enfermedades Crónicas</ion-label>
+      <ion-input formControlName="enfermedadesCronicas"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Alergias</ion-label>
+      <ion-input formControlName="alergias"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="start">Fotos de Progreso</ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" sizeM="3" *ngFor="let photo of photos"><ion-img [src]="photo" ></ion-img></ion-col>
+        </ion-row>
+      </ion-grid> 
+      
+        <ion-button (click)="seleccionarImagen()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!dietaForm.valid">Enviar</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer>
+</ion-footer>

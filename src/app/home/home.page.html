@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Menu -{{ nombreUsuario }}</ion-title>
+    <ion-buttons  color="primary" shape="round" slot="end">
+      <ion-item (click)="salir()" routerDirection="root" lines="none" details="false" color="primary">
+          <ion-icon name="exit" slot="start"></ion-icon> Salir         
+      </ion-item>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-card #animatedCard>
+      <img alt="Logo" src="assets/imagenes/foto.png" />
+    </ion-card>
+
+    <ion-card>
+      <br>
+      <ion-card-title style="text-align: center;">Ju-Market Home</ion-card-title>
+      <ion-card-content>
+        <div style="text-align: center;">
+          <ion-button [routerLink]="['/product-list']">Tiendas</ion-button>
+        </div>
+
+        <div style="text-align: center;">
+          <ion-button [routerLink]="['/formdieta']">Mi Perfil</ion-button>
+        </div>
+
+        <div style="text-align: center;">
+          <ion-button [routerLink]="['/geolocalizacion']">Busca Tu tienda</ion-button>
+        </div>
+        
+      </ion-card-content>
+    </ion-card>
+</ion-content>
+
+<ion-footer>
+</ion-footer>
