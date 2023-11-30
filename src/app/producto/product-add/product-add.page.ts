@@ -43,7 +43,7 @@ export class ProductAddPage implements OnInit {
   ngOnInit() {
     this.productForm = this.formBuilder.group({
       'prod_name': [null, [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      'prod_desc': [null, Validators.required],
+      'prod_categoria': [null, Validators.required],
       'prod_price': [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
       'prod_cantidad': [null, [Validators.required, Validators.pattern('^[0-9]+$')]]
     });

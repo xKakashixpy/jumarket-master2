@@ -18,7 +18,7 @@ export class ProductEditPage implements OnInit {
   productForm!: FormGroup;
   // Esquema a utilizar en el Html
   producto: ClProducto = {   
-      codigo: "09-G02",
+      codigo: "09-G12",
       nombreprod: "",
       precio: 0,
       cantidad: 0,
@@ -56,7 +56,7 @@ export class ProductEditPage implements OnInit {
     // Especificamos Validaciones por medio de FormGroup
     this.productForm = this.formBuilder.group({
       'prod_name': [null, [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      'prod_desc': [null, Validators.required],
+      'prod_categoria': [null, Validators.required],
       'prod_price': [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
       'prod_cantidad': [null, [Validators.required, Validators.pattern('^[0-9]+$')]]
     });
@@ -107,7 +107,7 @@ export class ProductEditPage implements OnInit {
               prod_name: data.nombreprod,
               prod_price:data.precio,
               prod_cantidad:data.cantidad,
-              prod_desc: data.editorial
+              prod_categoria: data.categoria
 
             });
             loading.dismiss();
