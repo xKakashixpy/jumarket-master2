@@ -15,7 +15,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 })
 export class ClientServiceService {
   // Injectamos HttpClient, para poder consular una página
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   // Controla y enviará un mensaje a consola para todos los errores
   private handleError<T>(operation = 'operation', result?: T) {
@@ -31,7 +31,7 @@ export class ClientServiceService {
     console.log("Res-api Enviando AddClient : ", cliente);
     // Ojo No lo ejecuta lo declara
     // El Pipe lo intercepta
-    return this.http.post<Clcliente>(apiUrl, cliente, httpOptions)
+    return this.httpClient.post<Clcliente>(apiUrl, cliente, httpOptions)
       .pipe(  // Tubería
         // tap intersecta la respuesta si no hay error
         tap((cliente: Clcliente) => console.log('added client w/:', cliente)),
@@ -43,7 +43,7 @@ export class ClientServiceService {
   // Obtenemos todos los Clientes
   getClientes(): Observable<Clcliente[]> {
     console.log("getClients ()");
-    return this.http.get<Clcliente[]>(apiUrl)
+    return this.httpClient.get<Clcliente[]>(apiUrl)
       .pipe(
         tap(heroes => console.log('fetched clientes')),
         catchError(this.handleError('getClientes', []))
@@ -56,7 +56,7 @@ export class ClientServiceService {
     //const url = '${apiUrl}/${id}';
     //return this.http.get<Cliente>(url).pipe(
     console.log("getCliente ID:" + id);
-    return this.http.get<Clcliente>(apiUrl + "/" + id)
+    return this.httpClient.get<Clcliente>(apiUrl + "/" + id)
       .pipe(
         tap(_ => console.log('fetched cliente id=${id}')),
         catchError(this.handleError<Clcliente>('getCliente id=${id}'))
@@ -66,7 +66,7 @@ export class ClientServiceService {
   deleteCliente(id: number): Observable<Clcliente> {
     //const url = '${apiUrl}/${id}';
     //return this.http.delete<Cliente>(url, httpOptions).pipe(
-    return this.http.delete<Clcliente>(apiUrl + "/" + id, httpOptions)
+    return this.httpClient.delete<Clcliente>(apiUrl + "/" + id, httpOptions)
       .pipe(
         tap(_ => console.log('deleted cliente id=${id}')),
         catchError(this.handleError<Clcliente>('deleteCliente'))
@@ -74,7 +74,7 @@ export class ClientServiceService {
   }
 
   updateCliente(id: number, cliente: Clcliente): Observable<Clcliente> {
-    return this.http.put<Clcliente>(apiUrl + "/" + id, cliente, httpOptions)
+    return this.httpClient.put<Clcliente>(apiUrl + "/" + id, cliente, httpOptions)
       .pipe(
         tap(_ => console.log('updated cliente id=${id}')),
         catchError(this.handleError<any>('updateCliente'))

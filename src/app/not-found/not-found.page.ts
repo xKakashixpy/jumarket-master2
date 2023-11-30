@@ -20,21 +20,21 @@ export class NotFoundPage implements OnInit {
   }
 
   //Aqui se crea la animacion
-  ngAfterViewInit() {
-    this.animation = this.animationCtrl
-      .create()
-      .addElement(this.card.nativeElement)
-      .duration(750)
-      .iterations(Infinity)
-      .direction('alternate')
-      .fromTo('background', 'yellow', 'var(--background)');
-      this.play() 
-  }
+ // ngAfterViewInit() {
+ //   this.animation = this.animationCtrl
+  //    .create()
+ //     .addElement(this.card.nativeElement)
+ //     .duration(750)
+ ////     .iterations(Infinity)
+//      .direction('alternate')
+/////      .fromTo('background', 'yellow', 'var(--background)');
+////      this.play() 
+ // }
 
   
-  play() {
-    this.animation.play();// Aqui se inicia
-  }
+ // play() {
+ //   this.animation.play();// Aqui se inicia
+ // }
 
 }
 
