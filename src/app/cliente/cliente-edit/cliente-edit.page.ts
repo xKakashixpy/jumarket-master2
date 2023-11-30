@@ -33,9 +33,9 @@ export class ClienteEditPage implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    console.log("ngOnInit ID:" + this.route.snapshot.params['id']);
+    //console.log("ngOnInit ID:" + this.route.snapshot.params['id']);
     // Relizamos lectura
-    this.getCliente(this.route.snapshot.params['id']);
+   // this.getCliente(this.route.snapshot.params['id']);
     // Especificamos Validaciones por medio de FormGroup
     this.clientForm = this.formBuilder.group({
       'prod_name': [null, Validators.required],

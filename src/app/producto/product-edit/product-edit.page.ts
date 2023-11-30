@@ -50,9 +50,9 @@ export class ProductEditPage implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    console.log("ngOnInit ID:" + this.route.snapshot.params['id']);
+    //console.log("ngOnInit ID:" + this.route.snapshot.params['id']);
     // Relizamos lectura
-    this.getProduct(this.route.snapshot.params['id']);
+    //this.getProduct(this.route.snapshot.params['id']);
     // Especificamos Validaciones por medio de FormGroup
     this.productForm = this.formBuilder.group({
       'prod_name': [null, [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
